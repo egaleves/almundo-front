@@ -12,9 +12,9 @@ Para su construcción se hizo uso del Framework Angular 5 y de un entorno basado
 1. Clone el repositorio git.
 2. Ingrese a la carpeta almundo-front a través de la consola de comandos.
 3. Ejecutar el comando `npm install` para la instalación de las dependencias.
-4. Ejecutar el comando `npm start` para iniciar el servidor de desarrollo.
+4. Ejecutar el comando `npm run start` para iniciar el servidor de desarrollo.
 5. Abrir en el navegador la dirección http://localhost:4200.
-6. Para la generación de los archivos de producción ejecutar el comando `npm build`.
+6. Para la generación de los archivos de producción ejecutar el comando `npm run build`.
 
 # Soporte para navegadores (versiones mínimas)
 - Chrome 29.0.
