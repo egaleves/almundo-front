@@ -1,0 +1,142 @@
+@import '../../styles.styl';
+
+.hotel
+	display flex
+	padding 10px
+	min-height 170px
+	transition all 0.3s ease-in-out
+	&:hover
+		transform scale(1.01)
+	&__img
+		flex 1 1 36.23%
+		&__img
+			background-size: cover;
+			width: 100%;
+			background-repeat: no-repeat;
+			height: 100%;
+			background-position: center;
+	&__info
+		flex 1 1 44.92%
+		padding 10px
+		&__name
+			font-family: Lato-bold;
+			font-size: 14px;
+			font-size: 0.875em;
+			-webkit-box-flex: 1;
+			-ms-flex: 1 1 auto;
+			flex: 1 1 auto;
+			color blue_txt
+			margin-bottom 6px
+		&__stars
+			color: #ffc200;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			margin-bottom 12px
+		&__star
+			&__icon
+				width: 16px;
+				margin-right: 4px;
+		&__amenities
+			color: #ffc200;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			margin-bottom 10px
+			align-items: center;
+		&__amenity
+			&__icon
+				width: 18px;
+				margin-right: 9px;				
+	&__price
+		flex 1 1 27.53%
+		padding 10px 16px
+		border-left: 1px dashed #d6d6d6;
+		display flex
+		align-items center
+		text-align center
+		flex-direction: column;
+		justify-content: center;
+		&__txt1
+			font-size 12px
+			margin-bottom 12px
+		&__value
+			color orange_primary
+			margin-bottom 12px
+			&__txt
+				font-size 22px
+				vertical-align middle
+			&__number
+				font-size 28px
+				vertical-align middle
+				font-family: Lato-bold;
+		&__cont-btn-view
+			test-align center
+		&__btn-view
+			color white
+			background-color blue_primary
+			width 200px
+			border none
+			outline none
+			max-width: 140px;
+			height: 32px;
+			padding: 0 10px;
+			box-sizing: border-box;
+			border-radius: 2px;
+			font-family: Lato-bold;
+			line-height: 0;
+			cursor: pointer;
+			transition 0.2s ease-in-out
+			&:hover
+				background-color blue_txt
+//queries...
+@media (max-width: 980px)
+	.hotel
+		flex-direction column
+		&__img
+			position: relative;
+			width: 100%;
+			height: 0;
+			padding-bottom: 66.57%;
+			&__img
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+		&__info
+			&__name
+				margin-top: 10px;
+				font-size: 22px;
+				margin-bottom: 10px
+			&__stars
+				font-size: 20px;
+			&__star
+				margin-right 8px
+			&__amenity
+				&__icon
+					margin-right: 9px;
+		&__price
+			border-left: none;
+			border-top: 1px dashed #bbb;
+			margin-top: 10px;
+			padding-top: 20px;
+			padding-bottom: 34px;
+			&__txt1
+				font-size: 18px;
+			&__value
+				&__txt
+					font-size: 30px;
+					font-size: 1.187em;
+				&__number
+					font-size: 36px;
+					font-size: 2.25em;
+			&__cont-btn-view
+				width 100%
+			&__btn-view
+				width: 80%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				min-width: 100px;
+				max-width: 230px;

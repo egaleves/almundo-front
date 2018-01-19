@@ -1,0 +1,28 @@
+<div class="hotel">
+  <div class="hotel__img">
+  	<div class="hotel__img__img" [ngStyle]="{'backgroundImage':'url(../assets/images/hotels/'+hotel.image+''}">
+  	</div>
+  </div>
+  <div class="hotel__info">
+  	<div class="hotel__info__name">{{hotel.name}}</div>	
+  	<ul class="hotel__info__stars">
+      <li *ngFor="let iconstar of createArr(hotel.stars)" class="hotel__info__star">
+        <i class="hotel__info__star__icon fa fa-star"></i>
+      </li>
+    </ul>
+    <ul class="hotel__info__amenities">
+      <li *ngFor="let amen of hotel.amenities" class="hotel__info__amenity">
+        <img class="hotel__info__amenity__icon" src="{{'../assets/icons/amenities/'+amen+'.svg'}}">
+      </li>
+    </ul>
+  </div>
+  <div class="hotel__price">
+    <p class="hotel__price__txt1">Precio por noche por habitación</p> 
+    <div class="hotel__price__value">
+      <span class="hotel__price__value__txt">ARS </span><span class="hotel__price__value__number">{{hotel.price}}</span>
+    </div>
+    <div class="hotel__price__cont-btn-view">
+      <button class="hotel__price__btn-view" type="submit" (click)="handleViewHotel()">Ver hotel</button>
+    </div>
+  </div>
+</div>

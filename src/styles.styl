@@ -1,0 +1,97 @@
+@import 'styl/*.styl';
+
+//fonts...
+@font-face
+	font-family Lato-regular
+	font-style normal
+	src url(/assets/fonts/Lato/Lato-Regular.ttf)
+
+@font-face
+	font-family Lato-light
+	font-style normal
+	src url(/assets/fonts/Lato/Lato-Light.ttf)
+
+@font-face
+	font-family Lato-bold
+	font-style normal
+	src url(/assets/fonts/Lato/Lato-Bold.ttf)
+
+//mixins...
+vendor(prop, args)
+	-webkit-{prop} args
+	-moz-{prop} args
+	-ms-{prop} args
+	-o-{prop} args
+		{prop} args
+
+border-radius()
+	vendor('border-radius', arguments)
+
+box-shadow()
+	vendor('box-shadow', arguments)
+
+box-sizing()
+	vendor('box-sizing', arguments)
+
+transition()
+	vendor('transition', arguments)
+
+transform()
+	vendor('transform', arguments)
+
+transform-origin()
+	vendor('transform-origin', arguments)
+
+appearance()
+	vendor('transform-origin', arguments)
+
+user-select()
+	vendor('user-select', arguments)
+
+//palette..
+blue_primary = #1D007A;
+blue_txt = #006FB4;
+blue_3 = #080640;
+grey_2 = #F4F4F4;
+grey_3 = #464646;
+yellow_primary = #FFC200;
+orange_primary = #ED6000;
+
+//Parameters..
+maxWidth = 1344px;
+
+//styles..
+body
+	background-color grey_2
+	color grey_3
+	font-family Lato-regular
+
+//commons...
+.loader
+	height: 6px;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	background-color: #ddd;
+	&:before
+		display: block;
+		position: absolute;
+		content: "";
+		left: -200px;
+		width: 200px;
+		height: 100%;
+		background-color: orange_primary;
+		animation: loading 2s linear infinite;
+
+@keyframes loading {
+  from {left: -200px; width: 30%;}
+  50% {width: 30%;}
+  70% {width: 70%;}
+  80% { left: 50%;}
+  95% {left: 120%;}
+  to {left: 100%;}
+}
+//utilities...
+.u
+	&-textCenter
+		text-align center

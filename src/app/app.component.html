@@ -1,0 +1,70 @@
+<header class="header">
+  <div class="header__center">
+    <img class="header__logo" src="./assets/images/logo-almundo.svg">
+  </div>
+</header>  
+<div class="loader" *ngIf="loading"></div>
+<div class="main">
+  <aside class="aside">
+    <div class="aside__title u-show-lg">Filtros</div>
+    <div class="aside__title aside__title_sm u-show-sm" (click)="handleShowFiltersSm()">
+      Filtrar <i class="aside__title__caret__icon fa fa-caret-down"></i>
+    </div>
+    <div class="filters" [@showFilters]="showsmfilters" *ngIf="showsmfilters">
+      <div class="filters__name">
+        <div class="filters__name__up">
+          <i class="fa fa-search filters__name__search-icon"></i>
+          <div class="filters__name__txt1">Nombre del hotel</div>
+          <div class="filters__name__caret-icon fa fa-caret-down"></div>
+        </div>
+        <div class="filters__name__down">
+          <div class="filters__name__cont-input">
+            <input class="filters__name__input" type="text" required [(ngModel)]="inputname" (ngModelChange)="handleChange($event)" placeholder="Ingrese el nombre del hotel">
+          </div>
+          <div class="filters__name__error-msg" *ngIf="!validname && dirtyinput && inputname!=''">Nombre no válido</div>
+          <button class="filters__name__btn-send" type="submit" (click)="handleSendName()">Aceptar</button>
+        </div>
+      </div>
+      <div class="filters__stars">
+        <div class="filters__stars__up">
+          <i class="filters__stars__star-icon fa fa-star"></i>
+          <div class="filters__stars__txt1">Estrellas</div>
+          <i class="filters__stars__caret-icon fa fa-caret-down"></i>
+        </div>
+
+        <div class="filters__stars__down">
+          <ul class="filters__stars__list">
+            
+            <li *ngFor="let star of arrstars;let idx=index" class="filters__stars__line">
+              <div class="filters__stars__checkbox">
+                <input class="filters__stars__checkbox__input" type="checkbox" name="arrstars" value="{{star.val}}" 
+                [(ngModel)]="star.chckd" (change)="handleChangeChecks(star.val,star.chckd)"/>
+              </div>
+              <div class="filters__stars__stars">
+                <div *ngFor="let iconstar of createArr(idx+1)"  class="filters__stars__star">
+                  <i class="filters__stars__star-icon__icon fa fa-star"></i>
+                </div>
+              </div>
+            </li>
+            
+            <li class="filters__stars__line">
+              <div class="filters__stars__checkbox">
+                <input class="filters__stars__checkbox__input" type="checkbox" [checked]="allstars" (change)="handleChangeChecks(-1,allstars)"/>
+              </div>
+              <div class="filters__stars__txt">Todas las estrellas</div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <section class="content">
+    <div class="content__msn-no-hotels" *ngIf="filteredHotels.length == 0 && !loading">No hay hoteles para mostrar</div>
+    <ul class="content__list-hotels">
+      <li class="content__contain-hotel" *ngFor="let hotel of filteredHotels; let idxh=index">
+        <app-hotel [hotel]="hotel"></app-hotel>
+      </li>
+    </ul>
+  </section>  
+</div>
