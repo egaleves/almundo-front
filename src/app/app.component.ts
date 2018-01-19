@@ -64,7 +64,7 @@ export class AppComponent {
   getHotelsByName(nameH) {
     var name = this.clearAccents(nameH), idx = -1;
     return this.hotelList.filter(function (objH) {
-      idx = objH.name.toLowerCase().indexOf(ctx.clearAccents(name).toLowerCase());
+      idx = ctx.clearAccents(objH.name).toLowerCase().indexOf(ctx.clearAccents(name).toLowerCase());
       return idx != -1;
     });
   }
